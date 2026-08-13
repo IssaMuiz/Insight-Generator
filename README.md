@@ -481,10 +481,10 @@ The roadmap is divided into progressive stages.
 
 ## Phase 1 — Document Understanding
 
-- [ ] Define supported document types
-- [ ] Collect initial documents
-- [ ] Analyse document characteristics
-- [ ] Build document ingestion pipeline
+- [x] Define supported document types
+- [x] Collect initial documents
+- [x] Analyse document characteristics
+- [x] Build document ingestion pipeline
 - [ ] Implement PDF parsing
 - [ ] Preserve document metadata
 - [ ] Analyse document structure
