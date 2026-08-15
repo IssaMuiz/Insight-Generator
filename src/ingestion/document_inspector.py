@@ -5,7 +5,7 @@ from pathlib import Path
 RAW_DATA_DIR = Path("../data/raw")
 
 
-def inspect_pdf(pdf_path: Path) -> None:
+def inspect_document(pdf_path: Path) -> None:
     """Inspect a PDF and return basic document information."""
 
     document = pymupdf.open(pdf_path)
