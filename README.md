@@ -489,8 +489,8 @@ The roadmap is divided into progressive stages.
 
 ## Phase 2 — Text Processing
 
-- [ ] Text cleaning
-- [ ] Normalisation
+- [x] Text cleaning
+- [x] Normalisation
 - [ ] Chapter detection
 - [ ] Section detection
 - [ ] Chunking
