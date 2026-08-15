@@ -485,9 +485,7 @@ The roadmap is divided into progressive stages.
 - [x] Collect initial documents
 - [x] Analyse document characteristics
 - [x] Build document ingestion pipeline
-- [ ] Implement PDF parsing
-- [ ] Preserve document metadata
-- [ ] Analyse document structure
+- [x] Implement PDF parsing
 
 ## Phase 2 — Text Processing
 
