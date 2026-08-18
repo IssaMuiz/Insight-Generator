@@ -1,6 +1,6 @@
 # Insight Generator
 
-**Insight Generator** is an AI-powered document and book analysis system designed to transform lengthy documents into clear, structured, and actionable insights.
+**Insight Generator** is an AI-powered system for analysing knowledge-oriented non-fiction books and transforming their content into structured, grounded, and actionable insights.
 
 Instead of requiring users to read an entire book or document before understanding its key ideas, Insight Generator analyses the content and helps extract:
 
@@ -16,7 +16,7 @@ The system uses **Retrieval-Augmented Generation (RAG)** as part of its underlyi
 
 The goal is not simply to build a chatbot that answers questions about a PDF.
 
-The goal is to build an intelligent system that helps users **understand, extract value from, and apply knowledge contained in long-form documents**.
+The goal is to build an intelligent system that helps users **understand, extract value from, and apply knowledge contained in knowledge-oriented non-fiction books**.
 
 This repository is also a practical learning project for understanding how modern AI systems are designed, evaluated, and deployed in production.
 
@@ -24,7 +24,7 @@ This repository is also a practical learning project for understanding how moder
 
 ## Project Vision
 
-Large documents often contain valuable knowledge, but extracting that knowledge manually can be time-consuming.
+knowledge-oriented non-fiction books often contain valuable knowledge, but extracting that knowledge manually can be time-consuming.
 
 A user may have to read hundreds of pages to answer relatively simple questions:
 

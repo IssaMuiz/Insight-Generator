@@ -84,6 +84,22 @@ def test_document_parser_extracts_text(tmp_path):
     assert "This is a text" in result.pages[0].text
 
 
+def test_document_parser_extracts_spans(tmp_path):
+
+    doc_path = create_test_doc(tmp_path, ["This is a text"])
+
+    result = parse_document(doc_path)
+
+    span = result.pages[0].spans[0]
+
+    assert span.text == "This is a text"
+    assert span.page_number == 1
+    assert span.font is not None
+    assert span.font_size is not None
+    assert span.flags is not None
+    assert span.bbox is not None
+
+
 def test_document_parser_preserves_empty_pages(tmp_path):
 
     doc_path = create_test_doc(tmp_path, ["", "This is page 2"])
