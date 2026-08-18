@@ -21,7 +21,7 @@ def clean_document(document: Document) -> Document:
     """Create a cleaned copy of a document"""
 
     cleaned_pages = [
-        Page(page_number=page.page_number, text=clean_text(page.text))
+        Page(page_number=page.page_number, text=clean_text(page.text), spans=page.spans)
         for page in document.pages
     ]
 
