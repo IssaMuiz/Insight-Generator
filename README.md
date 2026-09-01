@@ -491,15 +491,13 @@ The roadmap is divided into progressive stages.
 
 - [x] Text cleaning
 - [x] Normalisation
-- [ ] Chapter detection
-- [ ] Section detection
-- [ ] Chunking
-- [ ] Chunk metadata
-- [ ] Evaluate chunking strategies
+- [x] Chunking
+- [x] Chunk metadata
+- [x] Evaluate chunking strategies
 
 ## Phase 3 — Retrieval System
 
-- [ ] Embedding generation
+- [x] Embedding generation
 - [ ] Vector indexing
 - [ ] Similarity search
 - [ ] Metadata filtering
