@@ -30,7 +30,7 @@ class TextEmbedding:
 
         return model
 
-    def embed(self, chunked_document: list[TextChunk]) -> list[TextEmbed]:
+    def embed_document(self, chunked_document: list[TextChunk]) -> list[TextEmbed]:
         """
         Embed the document text chunk
         Args:
@@ -53,3 +53,16 @@ class TextEmbedding:
         for chunk, embed in zip(chunked_document, embedding):
             embedded_chunks.append(TextEmbed(chunk=chunk, embedding=embed.tolist()))
         return embedded_chunks
+
+    def embed_text(self, text) -> TextEmbed:
+        """
+        Embed a single text
+        Args:
+            text(str): a single text chunk
+        Return:
+            A vector embedded chunk
+        """
+
+        embedding = self.model.encode(text, normalize_embeddings=True)
+
+        return embedding

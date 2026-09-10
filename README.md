@@ -1,43 +1,90 @@
 # Insight Generator
 
-**Insight Generator** is an AI-powered system for analysing knowledge-oriented non-fiction books and transforming their content into structured, grounded, and actionable insights.
+**Insight Generator** is an AI-powered system that analyses practical non-fiction books and transforms their content into a **grounded, structured, and actionable learning guide**.
 
-Instead of requiring users to read an entire book or document before understanding its key ideas, Insight Generator analyses the content and helps extract:
+A user uploads a practical non-fiction book in PDF format, and Insight Generator analyses the book to identify the knowledge that matters most and translate that knowledge into practical actions.
 
-- Key ideas and principles
-- Important insights
-- Chapter summaries
+The system is designed to help users answer a more useful question than simply:
+
+> "What does this book say?"
+
+It aims to answer:
+
+> **"What are the most important ideas in this book, why do they matter, and what should I actually do to apply them?"**
+
+The initial system focuses on extracting:
+
+- Core ideas and principles
+- Important supporting insights
+- Clear explanations of the author's teachings
 - Practical lessons
-- Actionable steps
-- Key concepts and explanations
-- Supporting passages from the source document
+- Concrete, actionable steps
+- Supporting passages from the original book
 
-The system uses **Retrieval-Augmented Generation (RAG)** as part of its underlying architecture to ground generated insights in the original document content.
+The underlying architecture uses **Retrieval-Augmented Generation (RAG)** to retrieve relevant evidence from the source book before generating the final learning guide.
 
-The goal is not simply to build a chatbot that answers questions about a PDF.
+The first version is **not a document chatbot**. Users do not need to ask questions about the book. The system analyses the uploaded book automatically and produces the structured output.
 
-The goal is to build an intelligent system that helps users **understand, extract value from, and apply knowledge contained in knowledge-oriented non-fiction books**.
-
-This repository is also a practical learning project for understanding how modern AI systems are designed, evaluated, and deployed in production.
+This repository is also a practical learning project for understanding how modern AI systems are designed, tested, evaluated, deployed, and operated in production.
 
 ---
 
-## Project Vision
+# Project Vision
 
-knowledge-oriented non-fiction books often contain valuable knowledge, but extracting that knowledge manually can be time-consuming.
+Practical non-fiction books often contain valuable ideas, frameworks, and methods, but extracting and applying that knowledge can require hours of reading, note-taking, interpretation, and organisation.
 
-A user may have to read hundreds of pages to answer relatively simple questions:
+A reader may finish a book and still struggle to answer:
 
-- What are the most important ideas in this book?
-- What are the author's main arguments?
-- What should I learn from each chapter?
-- Which concepts are worth remembering?
-- What practical actions can I take?
-- Where in the document is this idea supported?
+- What are the author's most important ideas?
+- Which principles are worth remembering?
+- What does the author actually want me to change?
+- How do these ideas translate into everyday behaviour?
+- What specific steps should I take?
+- Which parts of the book support these conclusions?
 
-Insight Generator aims to reduce this cognitive and time burden while keeping the generated information grounded in the original source.
+Insight Generator aims to reduce this cognitive burden while preserving the connection between the generated output and the original source.
 
-The long-term vision is to build a system that can transform large collections of documents into a structured and searchable **knowledge and insight layer**.
+The long-term vision is to build a system that transforms books into a structured **knowledge-to-action layer**: not merely summarising what an author said, but helping readers understand the author's ideas and translate them into practical behaviour.
+
+---
+
+# Core Product
+
+The first version follows a simple workflow:
+
+```text
+Upload Book
+     ↓
+Analyse Book
+     ↓
+Identify Core Ideas
+     ↓
+Retrieve Supporting Evidence
+     ↓
+Interpret the Ideas
+     ↓
+Translate Lessons into Actions
+     ↓
+Generate Structured Learning Guide
+```
+
+The final output should help the reader understand:
+
+```text
+WHAT
+What does the author teach?
+
+WHY
+Why does the author believe it matters?
+
+HOW
+How can the reader apply it?
+
+EVIDENCE
+Which passages from the book support the conclusion?
+```
+
+The system should therefore produce something closer to a **practical learning guide** than a conventional summary.
 
 ---
 
@@ -45,22 +92,35 @@ The long-term vision is to build a system that can transform large collections o
 
 The project has two primary objectives.
 
-### 1. Build a useful document intelligence system
+## 1. Build a useful book-to-action system
 
-The system should be capable of analysing long-form documents and producing useful, structured outputs.
+The system should transform practical non-fiction books into grounded, structured, and actionable knowledge.
 
-### 2. Build a production-quality AI engineering project
+The central product objective is:
 
-The project will be developed as a practical environment for learning and applying:
+> **Turn a practical non-fiction book into a useful guide for understanding and applying the author's teachings.**
+
+The generated output should be:
+
+- Grounded in the source
+- Focused on the most important ideas
+- Understandable
+- Practical
+- Action-oriented
+- Supported by relevant evidence
+
+## 2. Build a production-quality AI engineering project
+
+The project is also an environment for learning and applying:
 
 - Natural Language Processing
 - Large Language Models
 - Retrieval-Augmented Generation
 - Information retrieval
 - Embeddings
-- Vector databases
-- Reranking
+- Vector search
 - Prompt engineering
+- Structured generation
 - LLM evaluation
 - Software engineering
 - API development
@@ -72,199 +132,337 @@ The project will be developed as a practical environment for learning and applyi
 
 ---
 
-# Planned Capabilities
+# Initial Product Scope
 
-The initial system is expected to support the following capabilities.
+The initial MVP is intentionally narrow.
 
-## Document Understanding
+## Input
 
-Analyse uploaded documents and identify useful structural information such as:
+A practical non-fiction book in PDF format.
 
-- Document metadata
-- Pages
-- Chapters
-- Sections
-- Headings
-- Paragraphs
-- Text relationships
+Examples include books focused on:
 
-## Key Idea Extraction
+- Habits
+- Productivity
+- Leadership
+- Personal development
+- Business
+- Psychology
+- Finance
+- Learning
+- Decision-making
+- Other practical knowledge domains
 
-Identify the major ideas, principles, arguments, and themes contained within a document.
+## Output
 
-## Insight Generation
+A structured learning guide containing:
 
-Go beyond simple summarisation by identifying meaningful implications and insights derived from the source material.
+### Core Ideas
 
-## Chapter Analysis
+The most important ideas, principles, frameworks, and teachings in the book.
 
-For each chapter, generate structured information such as:
+### Explanations
 
-- Chapter summary
-- Main idea
-- Important concepts
-- Key lessons
-- Practical implications
-- Supporting passages
+Clear explanations of what those ideas mean and why they matter.
 
-## Concept Explanation
+### Practical Lessons
 
-Explain important concepts found within the document in a clear and understandable way.
+The useful lessons a reader should take away from the author's arguments and examples.
 
-## Practical Lessons
+### Actionable Steps
 
-Translate important ideas from the document into lessons that readers can understand and remember.
+Concrete actions a reader can take to apply the ideas in real life.
 
-## Actionable Steps
+### Supporting Evidence
 
-Where appropriate, transform lessons into concrete actions that a reader can apply.
+Relevant passages from the original book that support the generated ideas and recommendations.
 
-## Source Evidence
+---
 
-Generated insights should be supported by relevant passages retrieved from the original document.
+# What Insight Generator Is Not
 
-## Document Question Answering
+The initial version is deliberately **not** intended to be:
 
-Users should also be able to ask questions about the uploaded document and receive answers grounded in its contents.
+- A general-purpose PDF chatbot
+- A conversational question-answering system
+- A universal document-understanding platform
+- A replacement for reading every type of document
+- A generic summarisation tool
+
+The system may eventually support these capabilities, but they are not part of the core MVP.
+
+The current focus is:
+
+```text
+Book
+ ↓
+Understanding
+ ↓
+Core Knowledge
+ ↓
+Practical Interpretation
+ ↓
+Action
+```
 
 ---
 
 # High-Level Architecture
 
-The planned system will follow a pipeline similar to:
+The system follows a retrieval-grounded analysis pipeline:
 
 ```text
-                    ┌──────────────────────┐
-                    │      Documents       │
-                    │  Books / PDFs / etc. │
-                    └──────────┬───────────┘
+                  ┌────────────────────────┐
+                  │   Practical Book PDF   │
+                  └────────────┬───────────┘
                                │
                                ▼
-                    ┌──────────────────────┐
-                    │   Document Ingestion │
-                    └──────────┬───────────┘
+                  ┌────────────────────────┐
+                  │   Document Ingestion   │
+                  └────────────┬───────────┘
                                │
                                ▼
-                    ┌──────────────────────┐
-                    │       Parsing        │
-                    │  Text + Structure    │
-                    └──────────┬───────────┘
+                  ┌────────────────────────┐
+                  │        Parsing         │
+                  │   Text + Metadata      │
+                  └────────────┬───────────┘
                                │
                                ▼
-                    ┌──────────────────────┐
-                    │      Cleaning        │
-                    └──────────┬───────────┘
+                  ┌────────────────────────┐
+                  │        Cleaning        │
+                  └────────────┬───────────┘
                                │
                                ▼
-                    ┌──────────────────────┐
-                    │      Chunking        │
-                    └──────────┬───────────┘
+                  ┌────────────────────────┐
+                  │        Chunking         │
+                  └────────────┬───────────┘
                                │
                                ▼
-                    ┌──────────────────────┐
-                    │ Embeddings + Index   │
-                    └──────────┬───────────┘
+                  ┌────────────────────────┐
+                  │       Embeddings        │
+                  └────────────┬───────────┘
                                │
                                ▼
-                    ┌──────────────────────┐
-                    │      Retrieval       │
-                    └──────────┬───────────┘
+                  ┌────────────────────────┐
+                  │      Vector Store       │
+                  └────────────┬───────────┘
                                │
                                ▼
-                    ┌──────────────────────┐
-                    │ Evidence Construction│
-                    └──────────┬───────────┘
+                  ┌────────────────────────┐
+                  │       Retrieval          │
+                  └────────────┬───────────┘
                                │
                                ▼
-                    ┌──────────────────────┐
-                    │   LLM Generation     │
-                    └──────────┬───────────┘
+                  ┌────────────────────────┐
+                  │   Evidence Construction │
+                  └────────────┬───────────┘
                                │
                                ▼
-                    ┌──────────────────────┐
-                    │ Structured Insights  │
-                    └──────────────────────┘
+                  ┌────────────────────────┐
+                  │      LLM Analysis       │
+                  └────────────┬───────────┘
+                               │
+                               ▼
+                  ┌────────────────────────┐
+                  │   Structured Learning   │
+                  │          Guide          │
+                  └────────────┬───────────┘
+                               │
+                               ▼
+                  ┌────────────────────────┐
+                  │ Core Ideas + Lessons + │
+                  │      Action Steps      │
+                  └────────────────────────┘
 ```
 
-The architecture will evolve as the project develops.
+The architecture will evolve as the system becomes more sophisticated.
 
 ---
 
 # Why RAG?
 
-Large language models have strong language understanding and generation capabilities, but they should not be expected to reliably remember or reason over the complete contents of an arbitrary book or document.
+Large language models are capable of analysing and generating text, but relying entirely on the model's internal knowledge is not sufficient for a system whose output must be grounded in the uploaded book.
 
-RAG allows the system to retrieve relevant information from the original source and provide that information to the language model as context.
+Insight Generator therefore uses Retrieval-Augmented Generation as an underlying architectural pattern.
 
 The simplified process is:
 
 ```text
-User Task
-    ↓
+Book Content
+     ↓
+Chunk + Embed
+     ↓
+Store Vectors
+     ↓
 Retrieve Relevant Evidence
-    ↓
+     ↓
 Provide Evidence to LLM
-    ↓
-Generate Grounded Output
+     ↓
+Generate Grounded Learning Guide
 ```
 
-This helps the system:
+RAG helps the system:
 
-- Ground responses in source documents
+- Ground generated ideas in the original source
 - Reduce unsupported claims
-- Provide source evidence
-- Work with documents outside the model's training data
-- Handle information that is too large to place directly into a prompt
+- Retrieve relevant evidence from long books
+- Preserve a connection between generated insights and source passages
+- Work with books that are not part of the model's training knowledge
+- Avoid placing the entire book into a single prompt
 
-However, RAG is only one component of Insight Generator.
+However, retrieval alone does not produce useful learning material.
 
-The project will investigate how **retrieval, reasoning, prompting, structured generation, and evaluation** can work together to produce useful document intelligence.
+The quality of Insight Generator depends on the interaction between:
+
+```text
+Retrieval
++
+Evidence Selection
++
+Reasoning
++
+Prompting
++
+Structured Generation
++
+Evaluation
+```
 
 ---
 
-# Insight Generation vs Document Q&A
+# Insight Generation vs Summarisation
 
-A major design principle of this project is that **document analysis is broader than question answering**.
+Insight Generator is intended to go beyond simply shortening the book.
 
-A traditional document chatbot might perform:
-
-```text
-Question
-   ↓
-Retrieve chunks
-   ↓
-LLM
-   ↓
-Answer
-```
-
-Insight Generator aims to support:
+A conventional summary might produce:
 
 ```text
-Document
-   ↓
-Understand Structure
-   ↓
-Identify Important Information
-   ↓
-Retrieve Supporting Evidence
-   ↓
-Analyse Information
-   ↓
-Generate Insights
-   ↓
-Connect Insights to Evidence
-   ↓
-Produce Actionable Knowledge
+Chapter 1 discusses habits...
+Chapter 2 discusses...
+Chapter 3 discusses...
 ```
 
-This distinction is central to the project's design.
+Insight Generator instead aims for:
+
+```text
+Core Idea
+    ↓
+What the author means
+    ↓
+Why the idea matters
+    ↓
+What evidence supports it
+    ↓
+How to apply it
+    ↓
+Concrete actions
+```
+
+The distinction is important.
+
+The goal is not simply:
+
+> "Tell me what happened in the book."
+
+The goal is:
+
+> **"Help me understand the author's most valuable teachings and put them into practice."**
+
+---
+
+# Planned Capabilities
+
+The capabilities below describe the intended evolution of the system.
+
+## Book Understanding
+
+Analyse the uploaded book and identify useful information such as:
+
+- Pages
+- Text
+- Metadata
+- Structural information
+- Relevant passages
+- Relationships between sections
+
+Structural information may be used as supporting metadata, but the core pipeline should not depend entirely on successful chapter detection.
+
+## Core Idea Extraction
+
+Identify the major:
+
+- Ideas
+- Principles
+- Arguments
+- Frameworks
+- Themes
+- Recommendations
+
+The emphasis is on identifying the ideas that provide the greatest value to the reader.
+
+## Insight Generation
+
+Transform important ideas into useful interpretations that explain:
+
+- What the idea means
+- Why it matters
+- What problem it addresses
+- What implications it has
+- How it connects to practical behaviour
+
+## Practical Lessons
+
+Translate important ideas into concise lessons that readers can understand, remember, and apply.
+
+## Actionable Steps
+
+Where appropriate, transform lessons into concrete actions.
+
+Examples may include:
+
+- Behaviour changes
+- Exercises
+- Habits
+- Decision processes
+- Experiments
+- Practical routines
+- Implementation steps
+
+The objective is to move from:
+
+```text
+Understanding
+    ↓
+Application
+```
+
+rather than stopping at explanation.
+
+## Evidence Linking
+
+Generated ideas and recommendations should be supported by relevant passages from the source book.
+
+This allows the system to preserve a connection between:
+
+```text
+Generated Insight
+        ↓
+Supporting Evidence
+        ↓
+Original Book
+```
+
+## Structured Output
+
+The final result should use a predictable structure so that it can be displayed by a user interface, stored, evaluated, and processed programmatically.
+
+The exact schema will evolve as the generation system develops.
 
 ---
 
 # Planned Technology Stack
 
-The exact technologies may change as the project develops, but the initial implementation will focus on understanding the underlying components before introducing high-level frameworks.
+The exact technologies may change as the project develops. The initial implementation focuses on understanding the underlying components before introducing high-level abstractions.
 
 ### Programming
 
@@ -272,23 +470,25 @@ The exact technologies may change as the project develops, but the initial imple
 
 ### Document Processing
 
-- PyMuPDF and related document-processing tools
+- PyMuPDF
+- Related document-processing tools where required
 
 ### Machine Learning / NLP
 
 - PyTorch
+- Sentence Transformers
 - Hugging Face ecosystem where appropriate
 - Embedding models
 
 ### Retrieval
 
 - Vector similarity search
-- Vector database/index
+- Vector indexes / vector databases
 - Reranking
 
 ### LLM
 
-The project will use an LLM provider/model appropriate for the requirements of each development stage.
+An appropriate LLM provider/model will be selected according to the requirements of each development stage.
 
 ### Backend
 
@@ -319,7 +519,7 @@ The project will use an LLM provider/model appropriate for the requirements of e
 
 - GitHub Actions
 
-The technology stack is intentionally not considered final. Technology choices will be evaluated based on requirements rather than added simply because they are popular.
+Technology choices are not treated as fixed requirements. Each technology should justify its role in the system.
 
 ---
 
@@ -329,7 +529,7 @@ The system will initially be built **from the fundamentals** rather than immedia
 
 The purpose is to understand what happens underneath the abstractions.
 
-For each major component, the development process will ask:
+For each major component, the development process asks:
 
 1. What problem does this component solve?
 2. Why is it needed?
@@ -338,7 +538,7 @@ For each major component, the development process will ask:
 5. How should it be implemented?
 6. How should it be tested?
 7. How should it be evaluated?
-8. How would it be implemented in production?
+8. How would it work in production?
 
 Higher-level frameworks may be introduced later when their abstractions provide genuine value.
 
@@ -346,9 +546,9 @@ Higher-level frameworks may be introduced later when their abstractions provide 
 
 # Evaluation
 
-Evaluation will be treated as a core part of the system rather than an afterthought.
+Evaluation is a core part of the project rather than a final-stage addition.
 
-The project will evaluate both **retrieval quality** and **generation quality**.
+The system must be evaluated at multiple levels.
 
 ## Retrieval Evaluation
 
@@ -359,30 +559,43 @@ Potential metrics include:
 - Mean Reciprocal Rank (MRR)
 - NDCG
 
-The objective is to determine whether the system retrieves the evidence necessary to answer or analyse a task correctly.
+The objective is to determine whether retrieval returns the evidence necessary for downstream analysis.
 
 ## Generation Evaluation
 
-Potential evaluation dimensions include:
+Potential dimensions include:
 
 - Faithfulness
 - Relevance
 - Completeness
 - Coherence
 - Groundedness
-- Citation correctness
+- Evidence correctness
 
 ## Insight Quality
 
-The project will also investigate whether generated insights:
+The final output should be evaluated on whether it:
 
-- Capture important ideas from the source
-- Provide useful interpretation
-- Avoid simply restating the source
-- Remain grounded in the document
-- Produce practical value
+- Captures the important ideas from the source
+- Provides useful interpretation
+- Remains faithful to the author's teachings
+- Avoids unsupported conclusions
+- Produces meaningful practical value
+- Translates knowledge into useful action
+- Provides appropriate supporting evidence
 
-Evaluation methods will evolve as the system becomes more sophisticated.
+## Actionability
+
+A particularly important evaluation dimension for the MVP is whether the generated action steps are:
+
+- Specific
+- Understandable
+- Grounded in the book
+- Practical
+- Relevant to the idea being taught
+- Concrete enough for a reader to actually perform
+
+The system should not merely generate motivational statements. The objective is useful action.
 
 ---
 
@@ -394,16 +607,19 @@ Examples include:
 
 - Different chunking strategies
 - Different chunk sizes
+- Different overlap sizes
 - Different embedding models
 - Different retrieval methods
 - Reranking vs no reranking
+- Different retrieval query strategies
 - Different prompts
 - Different LLMs
+- Different output schemas
 - Different context sizes
 
 Each experiment should ideally answer:
 
-> **Did this change actually improve the system?**
+> **Did this change actually improve the quality of the learning guide?**
 
 The project will therefore maintain evaluation results and experiment records as the system evolves.
 
@@ -413,26 +629,27 @@ The project will therefore maintain evaluation results and experiment records as
 
 After the core intelligence pipeline is working, the project will progressively introduce production engineering practices.
 
-Planned areas include:
+## Testing
 
-### Testing
+Planned testing includes:
 
 - Unit tests
 - Integration tests
 - Retrieval tests
 - Evaluation tests
+- Regression tests
 
-### API
+## API
 
-Expose the core system through a production-oriented API.
+Expose the processing pipeline through a production-oriented API.
 
-### Containerisation
+## Containerisation
 
 Package the application using Docker.
 
-### CI/CD
+## CI/CD
 
-Automate:
+Automate a workflow similar to:
 
 ```text
 Code Change
@@ -446,7 +663,7 @@ Build
 Deployment
 ```
 
-### Versioning
+## Versioning
 
 Track important versions of:
 
@@ -458,18 +675,19 @@ Track important versions of:
 - Vector indexes
 - Model configurations
 
-### Monitoring
+## Monitoring
 
 Monitor areas such as:
 
-- Request failures
-- Latency
+- Processing failures
+- Request latency
 - Retrieval behaviour
 - Token usage
 - Generation failures
+- Resource utilisation
 - System performance
 
-### Cloud Deployment
+## Cloud Deployment
 
 The final system will be deployed to AWS as part of the project's MLOps learning objectives.
 
@@ -481,10 +699,10 @@ The roadmap is divided into progressive stages.
 
 ## Phase 1 — Document Understanding
 
-- [x] Define supported document types
-- [x] Collect initial documents
-- [x] Analyse document characteristics
-- [x] Build document ingestion pipeline
+- [x] Define supported document scope
+- [x] Collect initial practical non-fiction books
+- [x] Analyse source document characteristics
+- [x] Build document ingestion foundation
 - [x] Implement PDF parsing
 
 ## Phase 2 — Text Processing
@@ -493,38 +711,41 @@ The roadmap is divided into progressive stages.
 - [x] Normalisation
 - [x] Chunking
 - [x] Chunk metadata
-- [x] Evaluate chunking strategies
+- [x] Chunking tests
 
-## Phase 3 — Retrieval System
+## Phase 3 — Embedding & Retrieval Foundation
 
 - [x] Embedding generation
-- [ ] Vector indexing
-- [ ] Similarity search
-- [ ] Metadata filtering
+- [x] Embedding unit tests
+- [x] Embedding integration test
+- [x] Vector store
+- [x] Similarity search
+- [ ] Retrieval result model
 - [ ] Retrieval evaluation
 - [ ] Reranking
 - [ ] Retrieval optimisation
 
-## Phase 4 — RAG Pipeline
+## Phase 4 — Analysis Pipeline
 
-- [ ] Query processing
-- [ ] Context construction
+- [ ] Internal analysis task design
+- [ ] Evidence retrieval strategy
+- [ ] Evidence/context construction
 - [ ] Prompt construction
 - [ ] LLM integration
+- [ ] Structured generation
 - [ ] Grounded generation
-- [ ] Source citations
-- [ ] Structured outputs
+- [ ] Evidence linking
 
 ## Phase 5 — Insight Engine
 
-- [ ] Executive summaries
-- [ ] Key idea extraction
-- [ ] Chapter analysis
-- [ ] Concept extraction
+- [ ] Core idea extraction
+- [ ] Principle extraction
+- [ ] Insight generation
 - [ ] Concept explanation
-- [ ] Practical lessons
-- [ ] Actionable steps
-- [ ] Evidence linking
+- [ ] Practical lesson generation
+- [ ] Actionable step generation
+- [ ] Structured learning guide
+- [ ] Output validation
 
 ## Phase 6 — Evaluation
 
@@ -532,8 +753,9 @@ The roadmap is divided into progressive stages.
 - [ ] Retrieval evaluation
 - [ ] Generation evaluation
 - [ ] Faithfulness evaluation
-- [ ] Citation evaluation
+- [ ] Evidence evaluation
 - [ ] Insight quality evaluation
+- [ ] Actionability evaluation
 - [ ] Experiment tracking
 - [ ] Regression evaluation
 
@@ -541,11 +763,12 @@ The roadmap is divided into progressive stages.
 
 - [ ] Build API
 - [ ] Build user interface
-- [ ] Document upload
+- [ ] PDF upload
 - [ ] Processing pipeline
-- [ ] Insight dashboard
-- [ ] Document Q&A
-- [ ] Source exploration
+- [ ] Learning guide display
+- [ ] Evidence/source exploration
+- [ ] Processing status
+- [ ] Error handling
 
 ## Phase 8 — Production & MLOps
 
@@ -563,43 +786,50 @@ The roadmap is divided into progressive stages.
 
 # Future Possibilities
 
-Once the core system is reliable, the architecture could be extended to support:
+These capabilities may be explored after the MVP becomes reliable.
 
-### Multi-document analysis
+## Interactive Q&A
 
-Compare ideas across multiple books, papers, reports, or documents.
+Allow users to ask follow-up questions about the generated learning guide or source book.
 
-### Knowledge synthesis
+This is intentionally outside the initial product scope.
 
-Identify:
+## Multi-Book Analysis
+
+Compare multiple books and identify:
 
 - Agreements
 - Contradictions
-- Recurring themes
-- Different perspectives
-- Relationships between concepts
+- Recurring principles
+- Different approaches
+- Related concepts
 
-### Personal Knowledge Base
+## Knowledge Synthesis
 
-Allow users to build a searchable knowledge base from their own collection of documents.
+Combine ideas from multiple sources into a unified knowledge model.
 
-### Knowledge-to-Action
+## Personal Knowledge Base
 
-Transform extracted knowledge into:
+Allow users to build a searchable knowledge base from their own collection of books and documents.
 
-- Recommendations
-- Plans
+## Knowledge-to-Action
+
+Extend the system to generate:
+
+- Personal plans
 - Tasks
 - Learning objectives
-- Practical workflows
+- Practice schedules
+- Workflows
+- Implementation programmes
 
-These capabilities are future directions rather than part of the initial MVP.
+These are future directions rather than requirements for the initial MVP.
 
 ---
 
 # Project Structure
 
-The initial repository structure will follow a modular architecture:
+The repository follows a modular architecture:
 
 ```text
 insight-generator/
@@ -622,31 +852,60 @@ insight-generator/
 │   ├── parsing/
 │   ├── cleaning/
 │   ├── chunking/
-│   ├── embeddings/
+│   ├── embedding/
 │   ├── retrieval/
 │   ├── generation/
 │   └── evaluation/
 │
-├── tests/
+├── test/
 │
 ├── .gitignore
 ├── README.md
 └── requirements.txt
 ```
 
-The structure will be refined as the architecture becomes clearer.
+The exact structure will be refined as the architecture develops.
 
 ---
 
 # Current Status
 
-**Project Status:** Early Development
+**Project Status:** Active Development
 
-The project is currently beginning with **document analysis and ingestion**.
+The project has completed the foundational document-processing stages:
 
-The first objective is to understand the characteristics of the source documents before designing the parsing and processing pipeline.
+```text
+PDF
+ ↓
+Parsing ✅
+ ↓
+Cleaning ✅
+ ↓
+Chunking ✅
+ ↓
+Embedding ✅
+ ↓
+Vector Store ← Current stage
+ ↓
+Retrieval
+ ↓
+LLM Analysis
+ ↓
+Learning Guide
+```
 
-The system will be developed incrementally rather than attempting to implement the complete architecture at once.
+The current implementation has established:
+
+- PDF parsing
+- Text cleaning
+- Page-aware chunking
+- Chunk metadata
+- Sentence Transformer embeddings
+- Unit testing
+- Integration testing
+- CI validation
+
+The next major objective is to build the vector store and retrieval foundation.
 
 ---
 
@@ -657,11 +916,11 @@ This project is designed to develop practical understanding of:
 - Document AI
 - NLP
 - LLM applications
-- RAG
+- Retrieval-Augmented Generation
 - Information retrieval
 - Semantic search
 - Embeddings
-- Vector databases
+- Vector stores
 - Reranking
 - Prompt engineering
 - Structured generation
@@ -675,6 +934,34 @@ This project is designed to develop practical understanding of:
 - Production AI engineering
 
 The emphasis is on understanding **why systems are designed the way they are**, not merely assembling existing libraries.
+
+---
+
+# Success Criteria for the MVP
+
+The MVP should ultimately satisfy the following:
+
+```text
+User uploads a practical non-fiction book
+                ↓
+System processes the book
+                ↓
+System identifies important ideas
+                ↓
+System retrieves supporting evidence
+                ↓
+System generates grounded explanations
+                ↓
+System converts lessons into practical actions
+                ↓
+User receives a structured learning guide
+```
+
+A successful result should make the reader feel:
+
+> **"I understand what this book is really teaching, why it matters, and what I can actually do with it."**
+
+The system should therefore be judged not only by whether it can process a book, but by whether the resulting output provides enough value to make the effort of using the system worthwhile.
 
 ---
 
