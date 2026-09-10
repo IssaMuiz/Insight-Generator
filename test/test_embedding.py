@@ -66,7 +66,7 @@ def test_embedded_chunks(monkeypatch):
         ),
     ]
 
-    result = embedding.embed(chunked_document=chunked_document)
+    result = embedding.embed_document(chunked_document=chunked_document)
 
     assert len(result) == 2
     assert result[1].chunk.text == "Another text for text embedding"
@@ -100,7 +100,7 @@ def test_embedded_empty_chunks(monkeypatch):
 
     chunked_document = []
 
-    result = embedding.embed(chunked_document=chunked_document)
+    result = embedding.embed_document(chunked_document=chunked_document)
 
     assert len(result) == 0
     mock_model.encode.assert_not_called()

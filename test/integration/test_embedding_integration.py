@@ -23,7 +23,7 @@ def test_embedding_chunks_integration():
 
     embedding = TextEmbedding()
 
-    result = embedding.embed(chunked_document=chunked_document)
+    result = embedding.embed_document(chunked_document=chunked_document)
 
     assert len(result) == 2
     assert isinstance(result[0].embedding, list)
