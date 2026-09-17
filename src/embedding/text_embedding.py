@@ -54,7 +54,7 @@ class TextEmbedding:
             embedded_chunks.append(TextEmbed(chunk=chunk, embedding=embed.tolist()))
         return embedded_chunks
 
-    def embed_text(self, text) -> TextEmbed:
+    def embed_text(self, text: str) -> TextEmbed:
         """
         Embed a single text
         Args:
